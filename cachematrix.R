@@ -37,6 +37,5 @@ m <- x$getinverse()
         m <- solve(data, ...)
         x$setinverse(m)
         m
-a
 
 }
