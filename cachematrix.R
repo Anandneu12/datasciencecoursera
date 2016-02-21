@@ -5,14 +5,14 @@
 ## This is a function to make special matrix object which eventually is a list of functions to set and get the matrix and set and get its value.
 
 makeCacheMatrix <- function(x = matrix()) {
-m <- NULL
-        set <- function(y) {
+q <- NULL
+        set <- function(w) {
                 x <<- y
-                m <<- NULL
+                q <<- NULL
         }
         get <- function() x
-        setinverse <- function(solve) m <<- solve
-        getinverse <- function() m
+        setinverse <- function(solve) q <<- solve
+        getinverse <- function() q
         list(set = set, get = get,
              setinverse = setinverse,
              getinverse = getinverse)
@@ -26,14 +26,14 @@ m <- NULL
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 
-m <- x$getinverse()
-        if(!is.null(m)) {
+q <- x$getinverse()
+        if(!is.null(q)) {
                 message("getting cached data")
-                return(m)
+                return(q)
         }
         data <- x$get()
-        m <- solve(data, ...)
-        x$setinverse(m)
-        m
+        q <- solve(data, ...)
+        x$setinverse(q)
+        q
 
 }
