@@ -1,8 +1,8 @@
-## The objective of the functions below is to return the inverse of a matrix. 
-## The first function acts as a cache which can be used to set stage for the solve function and list out the possibilities.
-## And the second function basically helps us return the value based on prior results or usage of the solve function ones.
+## The objective of the functions below is to cache the inverse of a matrix. 
+## The first function acts as a object which can cache the inverse of the special matrix.
+## And the second function calculates the inverse of this special matrix. If the inverse is already present then it retreives that inverse.
 
-## This is a function to make Cache Matrix which is basically being used to set stage for the solve function or set a place for the inverse task.
+## This is a function to make special matrix object which eventually is a list of functions to set and get the matrix and set and get its value.
 
 makeCacheMatrix <- function(x = matrix()) {
 m <- NULL
@@ -21,10 +21,8 @@ m <- NULL
 }
 
 
-## This is a function which returns a value based on the situation. If the inverse is present, it is returning that. 
-## Or it sends a message to execute the Solve function and get the result. 
-## Assumption is that the matrix is invertible.
-
+## This is a function which calculates the inverse of the special matrix. It first checks for any prior calcualtion of the inverse and if found it skips computation and returns it.
+## Otherwise it calcualtes the inverse and sets its value in the cache with the setinverse function
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 
